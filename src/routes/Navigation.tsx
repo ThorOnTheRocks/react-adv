@@ -21,12 +21,12 @@ const Navigation = () => {
         </nav>
 
         <Routes>
-        <Route path='about' element={<h1>About Page</h1>}/>
-        <Route path='user' element={<h1>User Page</h1>}/>
-        <Route path='home' element={<h1>Home Page</h1>}/>
+          <Route path='about' element={<h1>About Page</h1>}/>
+          <Route path='user' element={<h1>User Page</h1>}/>
+          <Route path='home' element={<h1>Home Page</h1>}/>
 
-        <Route path='/*' element={<Navigate to='/home' replace/>}/>
-      </Routes>
+          <Route path='/*' element={<Navigate to='/home' replace/>}/>
+        </Routes>
       </div>
 
       

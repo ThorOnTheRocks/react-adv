@@ -1,9 +1,8 @@
-import Navigation from "./routes/Navigation";
+import Navigation from "./01-lazyload/router/Navigation";
 
 const App = () => {
   return (
     <>
-      <h1>Hello React!</h1>
       <Navigation />
     </>
   );
