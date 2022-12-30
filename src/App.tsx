@@ -1,4 +1,4 @@
-import Navigation from "./01-lazyload/router/Navigation";
+import Navigation from "./routes/Navigation";
 
 const App = () => {
   return (
