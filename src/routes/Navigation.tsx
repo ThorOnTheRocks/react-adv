@@ -1,37 +1,40 @@
 import { BrowserRouter, NavLink, Navigate, Routes, Route } from 'react-router-dom';
 import logo from '../logo.svg'
+import { routes } from './routes';
+import { Suspense } from 'react';
 
 const Navigation = () => {
   return (
-    <BrowserRouter>
-      <div className='main-layout'>
-        <nav>
-          <img src={logo} alt='React logo'/>
-          <ul>
-            <li>
-              <NavLink to='/home' className={({isActive}) => isActive ? 'nav-active' : ''}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to='/about' className={({isActive}) => isActive ? 'nav-active' : ''}>About</NavLink>
-            </li>
-            <li>
-              <NavLink to='/user' className={({isActive}) => isActive ? 'nav-active' : ''}>User</NavLink>
-            </li>
-          </ul>
-        </nav>
+    <Suspense fallback={<span>Loading...</span>}>
+      <BrowserRouter>
+        <div className='main-layout'>
+          <nav>
+            <img src={logo} alt='React logo'/>
+            <ul>
+              {routes.map((route) => (
+                  <li key={route.to}>
+                    <NavLink to={route.to} className={({isActive}) => isActive ? 'nav-active' : ''}>
+                      {route.name}
+                    </NavLink>
+                  </li>
+                )
+              )}
+            </ul>
+          </nav>
 
-        <Routes>
-          <Route path='about' element={<h1>About Page</h1>}/>
-          <Route path='user' element={<h1>User Page</h1>}/>
-          <Route path='home' element={<h1>Home Page</h1>}/>
+          <Routes>
+            {routes.map(route => (
+              <Route key={route.to} path={route.path} element={<route.Component/>} />
+            ))}
 
-          <Route path='/*' element={<Navigate to='/home' replace/>}/>
-        </Routes>
-      </div>
+            <Route path='*/' element={<Navigate to={routes[0].to} replace />}></Route>
+          </Routes>
+        </div>
 
-      
+        
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </Suspense>
   );
 };
 
