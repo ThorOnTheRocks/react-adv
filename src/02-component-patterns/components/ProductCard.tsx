@@ -8,7 +8,6 @@ const { Provider } = ProductContext;
 
 const ProductCard = ({children, product}: IProductCardProps ) => {
   const {counter, handleCounter} = useProduct();
-
   return (
     <Provider value={{
       counter,
@@ -23,4 +22,4 @@ const ProductCard = ({children, product}: IProductCardProps ) => {
 };
 
 
-export default ProductCard;
+export {ProductCard as ProductCardHOC};

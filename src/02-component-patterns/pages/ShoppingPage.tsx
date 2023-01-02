@@ -1,5 +1,5 @@
 import { ProductImage, ProductButtons, ProductTitle } from "../components";
-import ProductCardHOC from "../components";
+import ProductCard from "../components";
 
 const product = {
   id: '1',
@@ -12,23 +12,22 @@ const ShoppingPage = () => {
     <div>
       <h1>ShoppingPage</h1>
       <hr />
-
       <div style={{
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap'
       }}>
-        <ProductCardHOC product={product}>
-          <ProductCardHOC.Image />
-          <ProductCardHOC.Title title={'Coffee Mug'} />
-          <ProductCardHOC.Buttons /> 
-        </ProductCardHOC>
+        <ProductCard product={product}>
+          <ProductCard.Image />
+          <ProductCard.Title title={'Coffee Mug'} />
+          <ProductCard.Buttons /> 
+        </ProductCard>
 
-        <ProductCardHOC product={product}>
+        <ProductCard product={product}>
           <ProductImage />
           <ProductTitle title='' />
           <ProductButtons />
-        </ProductCardHOC>
+        </ProductCard>
       </div>
     </div>
   );
