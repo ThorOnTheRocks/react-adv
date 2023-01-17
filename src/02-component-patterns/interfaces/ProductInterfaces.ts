@@ -24,3 +24,8 @@ export interface IOnChangeArgs {
 export interface IProductInCart extends IProduct {
   count: number,
 }
+
+export interface IInitialValues {
+  count?: number,
+  maxCount?: number,
+}
