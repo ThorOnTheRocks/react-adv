@@ -29,3 +29,14 @@ export interface IInitialValues {
   count?: number,
   maxCount?: number,
 }
+
+export interface IProductCardHandlers {
+  count: number,
+  isMaxCountReached: boolean,
+  maxCount?: number,
+  product: IProduct,
+
+  handleCounter: (value: number) => void,
+  reset: () => void,
+
+}
